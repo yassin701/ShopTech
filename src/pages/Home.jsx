@@ -1,11 +1,16 @@
 import React from 'react'
 import fashion from "../assets/video/fashion.mp4";
 import { useNavigate } from 'react-router-dom';
+import products from '../data/Product';
+import ProductCard from '../Components/ProductCard';
+
 
 
 export default function Home() {
   const navigate = useNavigate();
+  const specialite = products.slice(0,4)
   return (
+  <>
     <section className='relative h-screen overflow-hidden'>
       {/*Video*/}
       <video
@@ -30,5 +35,18 @@ export default function Home() {
         </div>
       </div>
     </section>
+      <div className="py-2 px-6 max-w-7xl mx-auto">
+      <h1 className='text-3xl font-bold mt-7 mb-5 flex items-center justify-center '>Our Specialite</h1>
+        <p className='text-center text-gray-600  max-w-2xl mx-auto mb-8'>
+              Discover some of our best products selected for you.
+        </p>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+           {specialite.map((product)=>(
+            <ProductCard key={product.id} product={product}/>
+          ))}
+        </div>
+      </div>
+ 
+ </>
   )
 }
