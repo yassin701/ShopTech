@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar'
 import Home from './pages/Home'
 import './App.css'
 import Catalogue from './pages/Catalogue'
+import Footer from './Components/Footer'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Route path='/catalogue' element={<Catalogue/>}/>
    
     </Routes>
+     <Footer/>
     </BrowserRouter>
   )
 }

@@ -3,7 +3,7 @@ import fashion from "../assets/video/fashion.mp4";
 import { useNavigate } from 'react-router-dom';
 import products from '../data/Product';
 import ProductCard from '../Components/ProductCard';
-import { FaStore } from "react-icons/fa";
+import { FaTruck, FaClock, FaMapMarkedAlt } from "react-icons/fa";
 
 
 
@@ -73,15 +73,12 @@ export default function Home() {
         </div>
       </section>
 
-
-
-
       {/*ligne*/}
       <div className='w-full h-px bg-gray-300 my-5'></div>
 
 
       {/*section best products*/}
-      <section className="py-2 px-6 max-w-7xl mx-auto">
+      <section className="py-2  px-6 max-w-7xl mx-auto">
         <h1 className='text-3xl font-bold mt-7 mb-5 flex items-center justify-center '>Our Best Products</h1>
         <p className='text-center text-gray-600  max-w-2xl mx-auto mb-8'>
           Discover some of our best products selected for you.
@@ -90,6 +87,53 @@ export default function Home() {
           {randomProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+      </section>
+
+
+      {/*ligne*/}
+      <div className='w-full h-px bg-gray-300 my-16'></div>
+
+
+      {/*section delivery*/}
+
+      <section className=" py-10 my-16">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Fast & Reliable Delivery
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+            {/* Card 1 */}
+            <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+              <FaTruck className="text-4xl mx-auto mb-4 text-black" />
+              <h3 className="text-xl font-semibold mb-2">Nationwide Delivery</h3>
+              <p className="text-gray-600">
+                We deliver your orders anywhere with secure and careful shipping.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+              <FaClock className="text-4xl mx-auto mb-4 text-black" />
+              <h3 className="text-xl font-semibold mb-2">Fast Shipping</h3>
+              <p className="text-gray-600">
+                Get your products delivered within 24–72 hours.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+              <FaMapMarkedAlt className="text-4xl mx-auto mb-4 text-black" />
+              <h3 className="text-xl font-semibold mb-2">Easy Tracking</h3>
+              <p className="text-gray-600">
+                Track your order easily from confirmation to delivery.
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 
