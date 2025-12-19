@@ -1,7 +1,11 @@
 import React from 'react'
 import { FaShoppingCart, FaHeart } from 'react-icons/fa'
+import { useDispatch } from 'react-redux';
+import {addToCart} from '../lib/CartSlice';
 
 export default function ProductCard({ product }) {
+ const Dispatch = useDispatch();
+
   return (
     <div className='bg-white rounded-2xl shadow-2xl hover:shadow-gray-500 transition p-5 relative group mb-10'>
 
@@ -14,13 +18,13 @@ export default function ProductCard({ product }) {
 
       {/*Product info */}
       <div className='mt-4 '>
-        <h3 className='font-semibold text-lg'>{product.name}</h3>
+        <h3 className='font-semibold text-lg'> {product.name}</h3>
         <p className='text-gray-600 mt-1'>{product.price} MAD</p>
       </div>
 
       {/*Add to cart*/}
       <div className='flex items-center justify-center gap-7'>
-      <button className='mt-4 w-70 flex items-center justify-center gap-2
+      <button onClick={() => Dispatch(addToCart(product))} className='mt-4 w-70 flex items-center justify-center gap-2
                           bg-black text-white py-2 rounded-lg
                           hover:bg-gray-300 hover:text-black transition cursor-pointer'>
       <FaShoppingCart/>

@@ -3,7 +3,7 @@ import products from '../data/Product';
 import ProductCard from '../Components/ProductCard';
 
 export default function Catalogue() {
-  const [searchTerm,setSearchTerm]= useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const categories = ["All", "Jackets", "Tops", "Pants", "Shoes", "Accessories"];
 
@@ -11,7 +11,7 @@ export default function Catalogue() {
     .filter(product =>
       selectedCategory === "All" ? true : product.category === selectedCategory
     )
-    .filter(product => 
+    .filter(product =>
       product.name.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
 
@@ -35,8 +35,8 @@ export default function Catalogue() {
         </select>
 
         {/* Search input */}
-        <input 
-          type="text" 
+        <input
+          type="text"
           placeholder='Search product...'
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -46,10 +46,17 @@ export default function Catalogue() {
 
       {/* Grid of products */}
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-500 text-lg">
+            Product not found.
+          </p>
+        )}
       </div>
+
     </div>
   );
 }
