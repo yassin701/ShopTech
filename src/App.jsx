@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import './App.css'
 import Catalogue from './pages/Catalogue'
 import Footer from './Components/Footer'
+import WishList from './pages/WishList'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/catalogue' element={<Catalogue/>}/>
+      <Route path='/WishList' element={<WishList/>}/>
    
     </Routes>
      <Footer/>

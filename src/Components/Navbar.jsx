@@ -11,6 +11,7 @@ export default function Navbar() {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   return (
+    <>
     <nav className="fixed top-0 w-full z-50 bg-white/50 backdrop-blur shadow">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
@@ -27,12 +28,13 @@ export default function Navbar() {
 
         {/* Icons */}
         <div className="flex items-center gap-6">
-          <button className="text-xl hover:text-black transition">
+          < Link to="/WishList" className="text-xl hover:text-black transition">
+           
             <FaHeart />
-          </button>
+          </Link>
 
           <button
-            className="relative text-xl hover:text-black transition"
+            className= "relative text-xl hover:text-black cursor-pointer transition" 
             onClick={() => setOpenCart(true)}
           >
             <FaShoppingCart />
@@ -43,7 +45,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      <CartSidbar open={openCart} onClose={() => setOpenCart(false)} />
+     
     </nav>
+     <CartSidbar open={openCart} onClose={() => setOpenCart(false)} />
+     </>
   )
 }
