@@ -44,7 +44,7 @@ export default function ProductCard({ product }) {
         <button 
           onClick={() => dispatch(AddWishlist(product))}
           className={`mt-7 transition cursor-pointer ${
-            isLiked ? 'text-black' : 'text-gray-400'
+            isLiked ? 'text-red-400' : 'text-gray-400'
           }`}
         >
           <FaHeart size={20} />
