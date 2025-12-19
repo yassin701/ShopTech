@@ -5,6 +5,8 @@ import './App.css'
 import Catalogue from './pages/Catalogue'
 import Footer from './Components/Footer'
 import WishList from './pages/WishList'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
 
@@ -17,8 +19,16 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/catalogue' element={<Catalogue/>}/>
       <Route path='/WishList' element={<WishList/>}/>
-   
+      
     </Routes>
+    <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
      <Footer/>
     </BrowserRouter>
   )

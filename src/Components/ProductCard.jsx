@@ -3,7 +3,7 @@ import { FaShoppingCart, FaHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../lib/CartSlice';
 import { AddWishlist } from "../lib/WishList";
-
+import { toast } from 'react-toastify'
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
 
@@ -14,6 +14,24 @@ export default function ProductCard({ product }) {
 
   // هنا دير check واش المنتج موجود فالـ wishlist
   const isLiked = WishlistItems.some((item) => item.id === product.id);
+
+      const handleCart = () => {
+    dispatch(addToCart(product))
+    toast.success('Added to cart 🛒')
+  }
+
+  const handleWishlist = () => {
+    dispatch(AddWishlist(product))
+
+    if (isLiked) {
+      toast.info('Removed from wishlist 💔')
+    } else {
+      toast.success('Added to wishlist ❤️')
+    }
+  }
+
+
+
 
   return (
     <div className='bg-white rounded-2xl shadow-2xl hover:shadow-gray-500 transition p-5 relative group mb-10'>
@@ -33,7 +51,8 @@ export default function ProductCard({ product }) {
       {/*Add to cart & wishlist*/}
       <div className='flex items-center justify-center gap-7'>
         <button 
-          onClick={() => dispatch(addToCart(product))} 
+          onClick={handleCart}
+         
           className='mt-4 w-70 flex items-center justify-center gap-2
                      bg-black text-white py-2 rounded-lg
                      hover:bg-gray-300 hover:text-black transition cursor-pointer'>
@@ -42,7 +61,7 @@ export default function ProductCard({ product }) {
         </button>
 
         <button 
-          onClick={() => dispatch(AddWishlist(product))}
+          onClick={handleWishlist}
           className={`mt-7 transition cursor-pointer ${
             isLiked ? 'text-red-400' : 'text-gray-400'
           }`}
