@@ -5,6 +5,7 @@ import {
     increaseQuantity,
     decreaseQuantity,
 } from "../lib/CartSlice";
+
 import { FaTrash } from "react-icons/fa";
 
 export default function CartSidebar({ open, onClose }) {
