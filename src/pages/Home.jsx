@@ -32,7 +32,7 @@ export default function Home() {
 
           <div className='mt-8'>
             <button onClick={() => navigate("/catalogue")} className="px-6 py-3 border border-white rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
-              View Catalogue
+              View Catalog
             </button>
 
           </div>

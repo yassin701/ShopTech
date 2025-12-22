@@ -8,7 +8,7 @@ export const store = configureStore({
   },
 });
 
-export default store;
+
 
 // 👉 save to localStorage on every change
 store.subscribe(() => {
@@ -17,3 +17,5 @@ store.subscribe(() => {
   localStorage.setItem("cart", JSON.stringify(state.cart));
   localStorage.setItem("wishlist", JSON.stringify(state.WishList));
 });
+
+export default store;

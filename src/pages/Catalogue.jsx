@@ -17,7 +17,7 @@ export default function Catalogue() {
 
   return (
     <div className='pt-24 px-6 max-w-7xl mx-auto'>
-      <h1 className='text-3xl font-bold mb-10 flex items-center justify-center'>Catalogue</h1>
+      <h1 className='text-3xl font-bold mb-10 flex items-center justify-center'>Catalog</h1>
 
       {/* Category + Search */}
       <div className='flex flex-col md:flex-row justify-between items-center gap-4 mb-8'>

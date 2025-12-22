@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FaHeart, FaTrash } from "react-icons/fa";
+import { FaHeart, FaTrash, FaShoppingCart } from "react-icons/fa";
 import { addToCart } from '../lib/CartSlice';
 import { removeFromWishlist } from "../lib/WishList";
 import products from '../data/Product';
@@ -59,13 +59,13 @@ export default function WishList() {
 
               {/* Actions */}
               <div className="col-span-3 flex items-center justify-end gap-4">
-             
                 <button
                   onClick={() => dispatch(removeFromWishlist(item.id))}
-                  className="text-gray-400 hover:text-red-500 transition"
+                  className="text-gray-400 hover:text-red-500 transition cursor-pointer"
                 >
                   <FaTrash size={20} />
                 </button>
+
               </div>
             </div>
           ))}
